@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Cơ Bản</title>
+</head>
+
+<style>
+.field{
+    color: blue;
+    font-weight: bold;
+}
+.option{
+    color: red;
+    font-weight: bold;
+}
+</style>
+
+<body>
+    <form action="">
+
+        <div
+            style="display: block; margin-left: 25%; border-style: outset; width: 500px; padding-bottom: 20px; font-family: 'Courier New', Courier, monospace;">
+            <center>
+                <h1 style="background-color: orangered;">
+                    <span style=" font-family: 'Courier New', Courier, monospace; color: white;"> Sở thích của bạn </span>
+                </h1>
+            </center>
+                    <table style="margin-left: 30px;">
+                        <tr>
+                            <td class="field"> Họ và Tên </td>
+                            <td> <input type="text"></td>
+                        </tr>
+                        <tr>
+                            <td class="field">Email</td>
+                            <td><input type="text"></td>
+                        </tr>
+                    </table>
+                    <table style="margin-left: 30px;">
+                        <td style="vertical-align: top;">Sở thích</td>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td class="option"><input type="checkbox">Thể thao</td>
+                                    <td class="option"><input type="checkbox">Âm nhạc</td>
+                                    <td class="option"><input type="checkbox">Đọc sách</td>
+
+                                </tr>
+                                <tr>
+                                    <td class="option"><input type="checkbox">Lướt web</td>
+                                    <td class="option"><input type="checkbox">Chơi game</td>
+                                    <td class="option"><input type="checkbox">Điện ảnh</td>
+                                </tr>
+                                <tr>
+                                    <td class="option" ><input type="checkbox">Du lịch</td>
+                                    <td><input type="checkbox"></td>
+                                </tr>
+                        </td>
+                    </table>
+                    <br>
+                    <input type="submit" value="Gửi thông tin">   
+                    <input type="reset" value="Nhập lại">
+        </div>
+
+    </form>
+</body>
+
+</html>
