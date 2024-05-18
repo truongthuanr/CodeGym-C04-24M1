@@ -1,0 +1,31 @@
+<!-- Bài 2: Sử dụng prompt cho nhập vào 2 số 
+    và hiển thị ra tổng, tích, hiệu , thương của 2 số đó 
+    ( sử dụng document.write, alert, console.log) -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExerciseBasic2
+    </title>
+</head>
+
+<body>
+    <script>
+        let a = parseFloat(prompt("Nhap a:"))
+        let b = parseFloat(prompt("Nhap b:"))
+        let kq = `Tổng: ${a + b}<br>
+        Hiệu: ${a - b}<br>
+        Thương: ${a / b}<br>
+        Tích: ${a * b}<br>`
+        let kq1 = `Tổng: ${a + b}\nHiệu: ${a - b}\nThương: ${a / b}\nTích: ${a * b}`
+        document.write(kq)
+        console.log(kq1)
+        alert(kq1)
+    </script>
+
+</body>
+
+</html>

@@ -6,46 +6,92 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Research Survey</title>
 </head>
+<style>
+    #rate {
 
+    }
+    #rate tr:nth-child(even){
+        background-color: darkgrey;
+    }
+</style>
 <body>
-    <h1>Market Research Survey</h1>
-    <p>Please take a few moments to complete this satisfaction survey.</p>
-    <br>
-    <h3>What is your age range?</h3>
-    <select name="" id="">
-        <option value="18-24">18-24</option>
-        <option value="25-34">25-34</option>
-        <option value="35-50">35-50</option>
-        <option value="50+">50+</option>
-    </select>
-    </div>
-    </select>
-    <br>
-    <h3>What is your yearly income range?</h3>
-    <select id="Field504" name="Field504" class="field select medium"
-        onchange="handleInput(this);" onkeyup="handleInput(this);" tabindex="0"
-        data-wufoo-field="dropdown">
-        <option value="$0 - $25,000"> $0 - $25,000 </option>
-        <option value="$25,001 - $50,000"> $25,001 - $50,000 </option>
-        <option value="$50,001 - $100,000"> $50,001 - $100,000 </option>
-        <option value="$100,000+"> $100,000+ </option>
-    </select>
-    <br>
-    <h3>Gender Identity</h3>
-    <input type="radio" name="gender">Male <br>
-    <input type="radio" name="gender">Female <br>
-    <input type="radio" name="gender">Non-binary <br>
-    <input type="radio" name="gender">Other <br>
-    <input type="text" name="" id=""> <br>
 
-    <br> 
-    <h3>Which of the following products have your purchased in the last 2 months. Please check all that apply.</h3>
-    <input type="checkbox">Product 1 <br>
-    <input type="checkbox">Product 2 <br>
-    <input type="checkbox">Product 3 <br>
+    <form action="">
+        <h1>Market Research Survey</h1>
+        <p>Please take a few moments to complete this satisfaction survey.</p>
+        <br>
+        <h3>What is your age range?</h3>
+        <select name="" id="">
+            <option value="18-24">18-24</option>
+            <option value="25-34">25-34</option>
+            <option value="35-50">35-50</option>
+            <option value="50+">50+</option>
+        </select>
+        </div>
+        </select>
+        <br>
+        <h3>What is your yearly income range?</h3>
+        <select id="Field504" name="Field504" class="field select medium"
+            onchange="handleInput(this);" onkeyup="handleInput(this);" tabindex="0"
+            data-wufoo-field="dropdown">
+            <option value="$0 - $25,000"> $0 - $25,000 </option>
+            <option value="$25,001 - $50,000"> $25,001 - $50,000 </option>
+            <option value="$50,001 - $100,000"> $50,001 - $100,000 </option>
+            <option value="$100,000+"> $100,000+ </option>
+        </select>
+        <br>
+        <h3>Gender Identity</h3>
+        <input type="radio" name="gender">Male <br>
+        <input type="radio" name="gender">Female <br>
+        <input type="radio" name="gender">Non-binary <br>
+        <input type="radio" name="gender">Other <br>
+        <input type="text" name="" id=""> <br>
 
-    <h3></h3>
+        <br>
+        <h3>Which of the following products have your purchased in the last 2 months.
+            Please
+            check all that apply.</h3>
+        <input type="checkbox">Product 1 <br>
+        <input type="checkbox">Product 2 <br>
+        <input type="checkbox">Product 3 <br>
 
+        <h3>How often would you use our new product?</h3>
+        <input type="radio" name="gender">Daily <br>
+        <input type="radio" name="gender">Weekly <br>
+        <input type="radio" name="gender">Monthly <br>
+
+        <h3>What would you pay for the new product?</h3>
+        <table>
+            <tr>
+                <td>$</td>
+                <td><input type="text" size="5px"></td>
+                <td>-</td>
+                <td><input type="text" size="1px"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>Dollars</td>
+                <td></td>
+                <td>Cents</td>
+            </tr>
+        </table>
+        <h3>What features would you like to see in the new product.</h3>
+        <textarea name="" id="" rows="8px" cols="100%"></textarea>
+        <h4>Please rate your level of agreement with the following statements.</h4>
+        <table class="rate">
+            <tr>
+                <td>fdg</td>
+                <td>dfgd</td>
+                <td>dfgdf</td>
+                <td>dfg</td>
+                <td>dfgdf</td>
+            </tr>
+            <tr>
+                <td>sdfsdf</td>
+                <td>sfsd</td>
+            </tr>
+        </table>
+    </form>
 </body>
 
 </html>
