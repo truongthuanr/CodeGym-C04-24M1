@@ -1,0 +1,142 @@
+<!-- 
+Bài 1: Viết chương trình nhập điểm của một sinh viên cho các môn: Vật lý, Hóa học, và Sinh học. 
+Sau đó hiển thị điểm trung bình và tổng của những điểm này.
+
+
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 7-1</title>
+</head>
+<style>
+    .Ex71restable {
+        border: 1px solid;
+
+
+    }
+
+    .Ex71restable td {
+        border: 1px solid;
+    }
+
+    .e71resrow {
+        height: 50px;
+        text-align: center;
+    }
+</style>
+
+<body>
+    <h1>Bài 1</h1>
+    <table>
+        <tr>
+            <td></td>
+            <td>Vật lý</td>
+            <td>Hóa học</td>
+            <td>Sinh học</td>
+        </tr>
+        <tr>
+            <td>Nhập điểm</td>
+            <td><input type="text" id="e71-in1"></td>
+            <td><input type="text" id="e71-in2"></td>
+            <td><input type="text" id="e71-in3"></td>
+        </tr>
+
+    </table>
+    <br>
+
+    <table id="ex71resid" class="Ex71restable">
+        <td><button onclick="Ex71()">Tính Điểm</button></td>
+        <td>
+            <table>
+                <tr>
+                    <td>Tổng điểm</td>
+                    <td>Điểm trung bình</td>
+
+                </tr>
+                <tr id="e71resrow" class="e71resrow">
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </td>
+    </table>
+
+    <script>
+        function Ex71() {
+            // Ex71kq.innerHTML= "asdf;alshfkljash"
+            // ex71resid.rows[0].cells[1][0].innerHTML = 'a';
+            let in1 = parseFloat(document.getElementById("e71-in1").value)
+            let in2 = parseFloat(document.getElementById("e71-in2").value)
+            let in3 = parseFloat(document.getElementById("e71-in3").value)
+            let total = (in1 + in2 + in3)
+            let avg = total / 3
+
+
+            e71resrow.cells[0].innerHTML = total
+            e71resrow.cells[1].innerHTML = avg
+
+        }
+
+
+
+    </script>
+
+
+
+    <!-- 
+Bài 2:  Viết chương trình nhập một giá trị là độ 0C (Celsius) và chuyển nó sang độ 0F (Fahrenheit).
+Hướng dẫn: C/5 = (F-32)/9]. 
+-->
+    <h1>
+        Bài 2
+    </h1>
+
+    Nhập giá trị: <input type="text" name="" id="celsiusinput" size="7px"
+        placeholder="value"> Celsius
+    <br>
+    <br>
+    <button onclick="cel2fah()">Chuyển đổi </button>
+    <br>
+    <br>
+    Kết quả: <output id="e72output"></output>
+
+    <script>
+        function cel2fah() {
+            let cel = parseFloat(document.getElementById("celsiusinput").value)
+            e72output.innerHTML = (9 / 5) * cel + 32
+
+        }
+    </script>
+
+    <!-- Bài 3: Viết chương trình tính diện tích hình tròn -->
+    <!-- Bài 4: Viết chương trình chu vi hình tròn  -->
+
+    <h1>Bài 3 + Bài 4</h1>
+
+    Nhập bán kính hình tròn: <input type="text" name="" id="radiusinput" size="7px"
+        placeholder="value"> unit
+    <br> <br>
+    <button onclick="circal()">Tính diện tích</button><br><br>
+    Kết quả: <br>
+    <output id="areaoutput"></output><br>
+    <output id="perioutput"></output><br>
+
+</body>
+<script>
+    function circal() {
+        let radius = parseFloat(document.getElementById("radiusinput").value)
+        let res = radius*radius*3.14
+        areaoutput.innerHTML = "Diện tích hình tròn:" + radius*radius*3.14
+        perioutput.innerHTML = "Chu vi hình tròn:" + radius*2*3.14
+
+
+    }
+</script>
+
+</html>
