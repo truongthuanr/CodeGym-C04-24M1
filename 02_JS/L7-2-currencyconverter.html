@@ -39,15 +39,23 @@
             <tr>
                 <td><input type="text" placeholder="Enter Input value" id="in1"></td>
                 <td><select name="" id="u1">
-                        <option value="VND">VND</option>
                         <option value="USD">USD</option>
+                        <option value="VND">VND</option>
+                        <option value="JPY">JPY</option>
+                        <option value="INR">INR</option>
+                        <option value="CNY">CNY</option>
+                        <option value="THB">THB</option>
                     </select></td>
             </tr>
             <tr>
-                <td><input type="text" placeholder="Convert to" id="out1"></td>
+                <td><input readonly type="text" placeholder="Convert to" id="out1"></td>
                 <td><select name="" id="u2">
-                        <option value="VND">VND</option>
                         <option value="USD">USD</option>
+                        <option value="VND">VND</option>
+                        <option value="JPY">JPY</option>
+                        <option value="INR">INR</option>
+                        <option value="CNY">CNY</option>
+                        <option value="THB">THB</option>
                     </select></td>
             </tr>
         </table>
@@ -60,6 +68,10 @@
             var rate = {
                 "USD": 1,
                 "VND": 25455,
+                "JPY": 156.47,
+                "INR": 83.30,
+                "CNY": 7.24,
+                "THB": 36.92,
             }
             let u1 = rate[document.getElementById("u1").value]
             let u2 = rate[document.getElementById("u2").value]
