@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CURRENCY CONVERTER</title>
+</head>
+
+<style>
+    img {
+        max-height: 100%;
+        max-width: 100%;
+    }
+
+    .img1 {
+        width: 500px;
+        margin: 10px;
+
+    }
+
+    .table1 {
+        height: 50px;
+
+    }
+
+    .table1 td {
+        width: 50px;
+    }
+</style>
+
+<body>
+    <div class="img1">
+        <img src="exchangerate.png" alt="Exchange Rate" siz>
+    </div>
+
+    <div>
+        <table class="table1">
+            <tr>
+                <td><input type="text" placeholder="Enter Input value" id="in1"></td>
+                <td><select name="" id="u1">
+                        <option value="VND">VND</option>
+                        <option value="USD">USD</option>
+                    </select></td>
+            </tr>
+            <tr>
+                <td><input type="text" placeholder="Convert to" id="out1"></td>
+                <td><select name="" id="u2">
+                        <option value="VND">VND</option>
+                        <option value="USD">USD</option>
+                    </select></td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <button onclick="convert()" style="">CONVERT</button>
+    </div>
+    <script>
+        function convert() {
+            var rate = {
+                "USD": 1,
+                "VND": 25455,
+            }
+            let u1 = rate[document.getElementById("u1").value]
+            let u2 = rate[document.getElementById("u2").value]
+            let in1 = parseFloat(document.getElementById("in1").value)
+            console.log(u1);
+            console.log(u2);
+            console.log(in1);
+
+            let res = in1 * u2 / u1;
+            console.log("res", res)
+            document.getElementById("out1").value = res
+            // out1.innerHTML = res
+        }
+    </script>
+</body>
+
+</html>
