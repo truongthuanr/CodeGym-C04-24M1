@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conditional Statement</title>
+</head>
+
+<body>
+    <div>
+        <h1>Kiểm tra năm nhuận </h1>
+        Enter year: <input type="number" id="year">
+        <button onclick="leapyearcheck()">Leap year check</button>
+
+
+    </div>
+
+    <div>
+        <h1>Luyện tập - Cấu trúc điều kiện 01</h1>
+        <h2>Bài 1</h2>
+        <h6>Nhập vào hai số a và b, và kiểm tra xem a có chia hết cho b hay không</h6>
+        Nhập a: <input type="number" id="a"><br>
+        Nhập b: <input type="number" id="b"><br>
+        <button onclick="bai1()">Kiểm tra</button>
+        <h2>Bài 2</h2>
+        <h6>Nhập tuổi và in ra kết quả nếu tuổi học sinh đó không đủ điều kiện vào học lớp
+            10. </h6>
+        Nhập tuổi: <input type="number" id="age">
+        <button onclick="agecheck()">Kiểm tra</button>
+        <h2>Bài 3</h2>
+        <h6>Nhập một số nguyên bất kỳ và in kết quả ra màn hình để nói cho người dùng biết
+            số đó là lớn hay nhỏ hơn 0</h6>
+        Nhập số: <input type="number" id="number3">
+        <button onclick="number3check()">Kiểm tra</button>
+        <h2> Bài 4</h2>
+        <h6>Nhập 3 số nguyên và tìm giá trị lớn nhất của ba số nguyên đó.</h6>
+        Nhập số thứ 1: <input type="number" id="b4num1"><br>
+        Nhập số thứ 2: <input type="number" id="b4num2"><br>
+        Nhập số thứ 3: <input type="number" id="b4num3"><br>
+        <button onclick="findmax()">Tìm số lớn nhất</button>
+
+
+
+
+
+
+    </div>
+    <div>
+
+    </div>
+    <br><br><br><br>
+    <script>
+        function leapyearcheck() {
+            let year = document.getElementById('year').value;
+            if ((year % 400 == 0) || ((year % 4 == 0) && (year % 100 != 0))) {
+                alert(year + " is a leap year!")
+                // console.log(year, " is a leap year!")
+            } else {
+
+                alert(year + " is NOT a leap year!")
+                // console.log(year +  " is not a leap year!")
+            }
+        }
+
+        function bai1() {
+            let a = document.getElementById("a").value
+            let b = document.getElementById("b").value
+            if (a % b == 0) {
+                alert(a + " chia hết cho " + b + ".")
+            } else { alert(a + " KHÔNG chia hết cho " + b + '.') }
+
+        }
+
+        function agecheck() {
+            let age = document.getElementById('age').value
+            if ((age >= 15) && (age <= 50)) {
+                alert("Đúng tuổi quy định.")
+            } else {
+                alert("Không đúng tuổi quy định.")
+
+            }
+        }
+
+        function number3check() {
+            let num3 = document.getElementById("number3").value
+            if (num3 > 0) {
+                alert("Số đã nhập: " + num3 + ", lớn hơn 0.")
+            } else if (num3 < 0) {
+                alert("Số đã nhập: " + num3 + ", nhỏ hơn 0.")
+            } else if (num3 == 0) {
+                alert("Số đã nhập là " + num3 + ".")
+
+            }
+        }
+        function findmax() {
+            let max;
+            max = document.getElementById('b4num1').value
+            
+            if (max < document.getElementById('b4num2').value) {
+                max = document.getElementById('b4num2').value
+                console.log(" 2", max)
+            }
+            if (max < document.getElementById('b4num3').value) {
+                max = document.getElementById('b4num3').value
+                console.log(" 3", max)
+
+
+            }
+            alert("Số lớn nhất là " + max + ".")
+        }
+    </script>
+</body>
+
+</html>
