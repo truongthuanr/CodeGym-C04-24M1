@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loop01</title>
+</head>
+<body>
+    <div>
+        <h1>Bài 8</h1>
+        <h3>Số nguyên tố</h3>
+        <h4>Ứng dụng cho phép hiển thị N số nguyên tố đầu tiên.</h4>
+        Nhập N: <input type="text" name="" id="n_prime" style="width: 20px;">
+        <button onclick="primeList()">Tính</button>
+    </div>
+    
+</body>
+
+<script>
+    function isPrime(num){
+        let ret;
+        check: {
+            for (i=2;i<num;i++){
+                // console.log("num: ",num)
+                // console.log("i   : ",i)
+                if ((num%i)==0){
+                    
+                    ret=false;
+                    // console.log("false:",ret)
+
+                    break check;
+                }
+            }
+            // console.log("true")
+            ret = true;
+            // console.log("true:",ret)
+        }
+        // console.log('return: ',ret)
+        return ret;
+    }
+
+
+
+    function primeList(){
+        let n = parseFloat(document.getElementById("n_prime").value);
+
+        console.log("n",n)
+        let i=2;
+        let primes = [];
+        let count=0;
+        while (count<n){
+            // console.log("while",i)
+            isPrime_res = isPrime(i);
+            // console.log(isPrime_res)
+            if(isPrime(i)==true){
+                count++;
+                primes.push(i)
+                console.log(count,"-th prime: ",i)
+            }
+            i++;
+        }
+        console.log("Num of prime: ",count)
+        alert("Primes: "+primes)
+    }
+    
+</script>
+</html>
