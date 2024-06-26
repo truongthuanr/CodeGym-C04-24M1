@@ -40,7 +40,7 @@ if (window.history.replaceState) {
 let newstudent_form = document.getElementById('addnewstudent-form')
 newstudent_form.addEventListener("submit", submitNewStudent)
 
-document.getElementById('editprofile-form').addEventListener("submit",updateprofile)
+document.getElementById('editprofile-form').addEventListener("submit", updateprofile)
 
 function addNewStudent() {
     document.getElementById('addnewstudent-form').style.display = 'block'
@@ -78,7 +78,7 @@ function showDetail(i) {
                         <dd class="col-sm-7"><button onclick="editprofile(${i})">Edit</button></dd>
                     </dl>
                         `
-                        studentdetail.innerHTML = str
+    studentdetail.innerHTML = str
 }
 
 function submitNewStudent(event) {
@@ -169,11 +169,17 @@ function showAll() {
             <td>${list[i].id}</td>
             <td>${list[i].name}</td>
             <td>${list[i].email}</td>
-            <td><button onclick="showDetail(${i})">Detail</button>
-                <button onclick="remove(${i})">Remove</button></td>
+            <td><div class="btn-group" role="group" aria-label="Basic mixed styles example">
+  <button type="button" class="btn btn-success" onclick="showDetail(${i})">Detail</button>
+  <button type="button" class="btn btn-danger" onclick="remove(${i})">Remove</button>
+</div></td>
+
 
         </tr>
         `
+
+        // <td><button onclick="showDetail(${i})">Detail</button>
+        //         <button onclick="remove(${i})">Remove</button></td>
         // <td>${list[i].email}</td>
         //     <td><button onclick="showFormEdit(${i})">Sửa</button></td>
         //     <td><button onclick="remove(${i})">Xóa</button></td>
@@ -193,7 +199,7 @@ function remove(i) {
     showAll()
 }
 
-function editprofile(i){
+function editprofile(i) {
     console.log('Run editprofile()')
     let student = myCourse.listStudents[i]
     // let studentdetail = document.getElementById('studentdetail')
@@ -203,6 +209,8 @@ function editprofile(i){
     document.getElementById('editid').value = student.id;
     document.getElementById('editname').value = student.name;
     document.getElementById('editbirthday').value = student.birthday;
+    document.getElementById('editemail').value = student.email;
+
     document.getElementById('editcourse').value = student.course;
     document.getElementById(`edit-gender-${student.gender.toLowerCase()}`).checked = true;
 
@@ -217,7 +225,7 @@ function editprofile(i){
 
 }
 
-function hideAll(){
+function hideAll() {
     document.getElementById('studentdetail').style.display = 'none'
     document.getElementById('editprofile').style.display = 'none'
 
@@ -225,11 +233,55 @@ function hideAll(){
 }
 
 
-function updateprofile(event){
+function updateprofile(event) {
     let i = document.getElementById('submit-edit-btn').value;
     console.log(`Run updateprofile ${i}`)
+
+    let editprofileform = document.getElementById('editprofile-form')
+    let studentid = editprofileform.elements.namedItem('editid').value;
+    let studentname = editprofileform.elements.namedItem('editname').value;
+    let studentbirthday = editprofileform.elements.namedItem('editbirthday').value
+    let studentgender = document.querySelector('input[type=radio][name=edit-gender]:checked').value
+    let studentemail = editprofileform.elements.namedItem('editemail').value
+    let studentcourse = editprofileform.elements.namedItem('editcourse').value
+
+    valid = editvalidate(studentname, studentbirthday, studentemail)
+    if (valid == true) {
+        console.log(`Valid to update profile`)
+        let student = new Student(studentid,
+            studentname,
+            studentbirthday,
+            studentgender,
+            studentemail,
+            studentcourse)
+        
+            myCourse.updateStudent(i,student)
+
+    }
+
+
+
 
     event.preventDefault();
     return true
 
+}
+
+
+function editvalidate(studentname, studentbirthday, studentemail) {
+    console.log(`Run editvalidate`)
+    if (studentname == "") {
+        alert("Student's Name must be not-null")
+    }
+    else if (studentbirthday == "") {
+        alert("Student's Name must be not-null")
+    }
+    else if (studentemail == "") {
+        alert("Student's Email must be not-null")
+    }
+
+
+    else {
+        return true;
+    }
 }

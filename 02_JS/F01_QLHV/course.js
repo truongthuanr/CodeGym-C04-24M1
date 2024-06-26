@@ -13,7 +13,7 @@ class course {
     }
 
     addStudent(newStudent){
-        console.log("Run course.addStuden")
+        console.log("Run course.addStudent")
         let temp = JSON.stringify(newStudent)
         temp = JSON.parse(temp)
         this.listStudents.push(temp)
@@ -31,7 +31,16 @@ class course {
 
     }
     
-    updateStudent(){
+    updateStudent(i,student){
+        console.log("Run course.updateStudent");
+        let temp = JSON.stringify(student);
+        temp = JSON.parse(temp);
+        this.listStudents[i] = temp;
+
+        showAll();
+
+
+
 
     }
 
