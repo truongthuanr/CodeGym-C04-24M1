@@ -13,7 +13,50 @@
 
 <body>
 
-    <div class="container text-center">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid" style="width: 300px;">
+            <a class="navbar-brand" href="#">
+                <img src="school.jpg" alt="Logo" width="30" height="24"
+                    class="d-inline-block align-text-top">
+                MySchool
+            </a>
+        </div>
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">News</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                    <!-- <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Dropdown link
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li> -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- <div class="container text-center"> -->
+    <div class="container">
+
         <!-- <div class="row">
             <div class="col">col</div>
             <div class="col">col</div>
@@ -22,43 +65,59 @@
         </div> -->
 
         <div class="row">
+
             <div class="col-7">
                 <h1>Student List</h1>
-                <table id="table-student" class="table table-hover">
-                </table>
-                <br>
-
-                <!-- <div id="student-detail">
-
-                </div> -->
-
-                <!-- <button onclick="addNewStudent()">Add New Student</button> -->
-                <div class="d-grid gap-2 col-7">
-                    <button class="btn btn-primary" type="button" onclick="addNewStudent()">Add New Student</button>
-                  </div>
-                <div>
-                    <form action="" id="addnewstudent-form" style="display: none;">
-                        <span>ID</span><input type="number" name="" id="student-id"> <br>
-                        <span>Name</span><input type="text" name="" id="student-name">
-                        <br>
-                        <span>Birthday</span><input type="date" name=""
-                            id="student-birthday"> <br>
-                        <span>Gender</span><input type="radio" name="student-gender"
-                            id="Male" value="Male">
-                        <label for="Male">Male</label>
-                        <input type="radio" name="student-gender" id="Female"
-                            value="Female">
-                        <label for="Female">Female</label>
-                        <br>
-                        <span>Email</span><input type="email" name="" id="student-email">
-                        <br>
-                        <span>Course</span><input type="text" name="" id="student-course">
-                        <br>
-                        <input type="submit" name="submit" id="submit"
-                            value="Sumit New Student">
-                    </form>
+                <div class="container" style="height: 80%; overflow: scroll;">
+                    <table id="table-student" class="table table-hover">
+                    </table>
                 </div>
+                    <br>
 
+                    <!-- <div id="student-detail">
+
+                    </div> -->
+
+                    <!-- <button onclick="addNewStudent()">Add New Student</button> -->
+                    <div class="row">
+                        <div class="d-grid gap-2 col-7">
+                            <button class="btn btn-primary" type="button"
+                                onclick="addNewStudent()">Add New Student</button>
+                        </div>
+                        <div class="d-grid gap-2 col-4">
+                            <button class="btn btn-primary" type="button"
+                                onclick="doSearch()">Search</button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <form action="" id="addnewstudent-form" style="display: none;">
+                            <span>ID</span><input type="number" name="" id="student-id">
+                            <br>
+                            <span>Name</span><input type="text" name="" id="student-name">
+                            <br>
+                            <span>Birthday</span><input type="date" name=""
+                                id="student-birthday"> <br>
+                            <span>Gender</span><input type="radio" name="student-gender"
+                                id="Male" value="Male">
+                            <label for="Male">Male</label>
+                            <input type="radio" name="student-gender" id="Female"
+                                value="Female">
+                            <label for="Female">Female</label>
+                            <br>
+                            <span>Email</span><input type="email" name=""
+                                id="student-email">
+                            <br>
+                            <span>Course</span><input type="text" name=""
+                                id="student-course">
+                            <br>
+                            <input type="submit" name="submit" id="submit"
+                                value="Sumit New Student">
+                        </form>
+                    </div>
+
+
+                
             </div>
             <div class="col-4">
                 <div id="studentdetail" style="display: none;">
@@ -99,6 +158,80 @@
                     <!-- </dl> -->
 
                 </div>
+
+                <div id="newprofile" style="display: none;">
+                    <img src="hacker.png" class="rounded mx-auto d-block" alt="..."
+                        style="width: 200px ;height: 200px; border: 5px solid black;">
+                    <button type="button" class="btn btn-secondary">Change
+                        Photo</button><br>
+                    <br>
+                    <form id="newprofile-form">
+                        <div class="row mb-3">
+                            <label for="newprofileid"
+                                class="col-sm-2 col-form-label">ID</label>
+                            <div class="col-sm-10">
+                                <input type="number" class="form-control"
+                                    id="newprofileid">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="newprofilename"
+                                class="col-sm-2 col-form-label">Name</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control"
+                                    id="newprofilename">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="newprofilebirthday"
+                                class="col-sm-2 col-form-label">Birthday</label>
+                            <div class="col-sm-10">
+                                <input type="date" class="form-control"
+                                    id="newprofilebirthday">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="newprofileemail"
+                                class="col-sm-2 col-form-label">Email</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control"
+                                    id="newprofileemail">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="newprofilecourse"
+                                class="col-sm-2 col-form-label">Course</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control"
+                                    id="newprofilecourse">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="" class="col-sm-2 col-form-label">Gender</label>
+                            <div class="col-sm-10">
+                                <input type="radio" class="btn-check"
+                                    name="newprofile-gender" id="newprofile-gender-male"
+                                    value="male" autocomplete="off" checked>
+                                <label class="btn btn-outline-success"
+                                    for="newprofile-gender-male">Male</label>
+
+                                <input type="radio" class="btn-check"
+                                    name="newprofile-gender" id="newprofile-gender-female"
+                                    autocomplete="off" value="female">
+                                <label class="btn btn-outline-success"
+                                    for="newprofile-gender-female">Female</label>
+                            </div>
+                        </div>
+                        <div class="d-grid gap-2" id="submit-newprofile-btn-div">
+                            <button class="btn btn-info">Submit New Student</button>
+                        </div>
+
+                    </form>
+                </div>
+
+
                 <div id="editprofile" style="display: none;">
                     <img src="hacker.png" class="rounded mx-auto d-block" alt="..."
                         style="width: 200px ;height: 200px; border: 5px solid black;">
@@ -109,7 +242,7 @@
                         <div class="row mb-3">
                             <label for="editid" class="col-sm-2 col-form-label">ID</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="editid"
+                                <input type="number" class="form-control" id="editid"
                                     disabled>
                             </div>
                         </div>
@@ -144,7 +277,7 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label for="" class="col-sm-2 col-form-label">Course</label>
+                            <label for="" class="col-sm-2 col-form-label">Gender</label>
                             <div class="col-sm-10">
                                 <input type="radio" class="btn-check" name="edit-gender"
                                     id="edit-gender-male" value="male" autocomplete="off"
@@ -160,7 +293,7 @@
                             </div>
                         </div>
                         <div class="d-grid gap-2" id="submit-edit-btn-div">
-                            
+
                         </div>
 
                     </form>
@@ -191,7 +324,13 @@
 
 
     <div>
-        <button onclick="SaveToStorage()">Save</button>
+        <!-- <button onclick="SaveToStorage()">Save</button> -->
+    </div>
+    <div class="position-absolute top-100 start-50">
+        <button type="button" class="btn btn-primary" onclick="SaveToStorage()">
+            SAVE ALL CHANGES
+            <!-- <span class=" translate-middle badge border border-light rounded-circle bg-danger p-2"><span class="visually-hidden">unread messages</span></span> -->
+        </button>
     </div>
 
 

@@ -41,9 +41,12 @@ let newstudent_form = document.getElementById('addnewstudent-form')
 newstudent_form.addEventListener("submit", submitNewStudent)
 
 document.getElementById('editprofile-form').addEventListener("submit", updateprofile)
+document.getElementById('newprofile-form').addEventListener("submit", submitNewStudent)
+
 
 function addNewStudent() {
-    document.getElementById('addnewstudent-form').style.display = 'block'
+    hideAll()
+    document.getElementById('newprofile').style.display = 'block'
 }
 
 function showDetail(i) {
@@ -61,21 +64,27 @@ function showDetail(i) {
     <img src="hacker.png" class="rounded mx-auto d-block" alt="..."
                      style="width: 200px ;height: 200px; border: 5px solid black;">
                     <dl class="row text-start">
-                        <dt class="col-sm-5">Photo</dt>
+                        <dt class="col-sm-4">Photo</dt>
                         <dd class="col-sm-7" id="name">${student.photo}</dd>
-                        <dt class="col-sm-5">Name</dt>
+                        <dt class="col-sm-4">Name</dt>
                         <dd class="col-sm-7" id="name">${student.name}</dd>
 
-                        <dt class="col-sm-5">Birthday</dt>
+                        <dt class="col-sm-4">Birthday</dt>
                         <dd class="col-sm-7">${student.birthday}</dd>
                         
-                        <dt class="col-sm-5">Gender</dt>
+                        <dt class="col-sm-4">Gender</dt>
                         <dd class="col-sm-7">${student.gender}</dd>
                         
-                        <dt class="col-sm-5">Email</dt>
+                        <dt class="col-sm-4">Email</dt>
                         <dd class="col-sm-7">${student.email}</dd>
-                        <dt class="col-sm-5"></dt>
-                        <dd class="col-sm-7"><button onclick="editprofile(${i})">Edit</button></dd>
+                        <dt class="col-sm-2"></dt>
+
+                        <dd class="col-sm-7">
+                        <div class="d-grid gap-2" id="" style="width:200px">
+                            <button class="btn btn-info" onclick="editprofile(${i})">Edit</button>
+                        </div>
+                        
+                        </dd>
                     </dl>
                         `
     studentdetail.innerHTML = str
@@ -86,7 +95,8 @@ function submitNewStudent(event) {
 
 
 
-    let newstudent = newstudent_form.elements
+    // let newstudent = newstudent_form.elements
+    let newstudent_form = document.getElementById('newprofile-form')
     let valid = false;
 
 
@@ -94,38 +104,20 @@ function submitNewStudent(event) {
     // console.log(`New student ID ${newstudent_form.elements.namedItem('student-id').value}`)
     // console.log(`New student Name ${newstudent_form.elements.namedItem('student-name').value}`)
     // console.log(`New student Birthday ${newstudent_form.elements.namedItem('student-birthday').value}`)
-    let studentid = newstudent_form.elements.namedItem('student-id').value;
-    let studentname = newstudent_form.elements.namedItem('student-name').value;
-    let studentbirthday = newstudent_form.elements.namedItem('student-birthday').value
-    let gender = document.querySelector('input[type=radio][name=student-gender]:checked')
-    let studentemail = newstudent_form.elements.namedItem('student-email').value
+    let studentid = newstudent_form.elements.namedItem('newprofileid').value;
+    let studentname = newstudent_form.elements.namedItem('newprofilename').value;
+    let studentbirthday = newstudent_form.elements.namedItem('newprofilebirthday').value
+    let studentgender = document.querySelector('input[type=radio][name=newprofile-gender]:checked').value
+    let studentemail = newstudent_form.elements.namedItem('newprofileemail').value
 
-    let studentcourse = newstudent_form.elements.namedItem('student-course').value
+    let studentcourse = newstudent_form.elements.namedItem('newprofilecourse').value
 
-    let studentgender;
 
-    console.log(`Gender ${gender}`)
+    valid = newProfileValidate(studentid,studentname,studentbirthday,studentemail)
 
-    if (newstudent.namedItem('student-id').value == "") {
-        alert("Student's ID must be not-null")
-    }
-    else if (newstudent.namedItem('student-name').value == "") {
-        alert("Student's Name must be not-null")
 
-    }
-    else if (newstudent.namedItem('student-birthday').value == "") {
-        alert("Student's Name must be not-null")
-    }
-    else if (gender === null) {
-        alert("Student's Gender must be not-null")
-    }
-    else {
-        valid = true;
-    }
 
     if (valid == true) {
-        studentgender = gender.value;
-        console.log(`Student gender ${studentgender}`)
         let student = new Student(studentid,
             studentname,
             studentbirthday,
@@ -135,17 +127,31 @@ function submitNewStudent(event) {
 
         myCourse.addStudent(student)
 
-
-
     }
-
-
     // Add student 
     // console.log(`New student form length ${newstudent_form.elements.namedItem('name').value}`)
     event.preventDefault();
-
     return true
+}
 
+function newProfileValidate(studentid,studentname,studentbirthday,studentemail){
+    if (studentid == "") {
+        alert("Student's ID must be not-null")
+    }
+    else if (studentname == "") {
+        alert("Student's Name must be not-null")
+
+    }
+    else if (studentbirthday == "") {
+        alert("Student's Name must be not-null")
+    }
+    else if (studentemail === null) {
+        alert("Student's Email must be not-null")
+    }
+    else {
+        return true;
+    }
+    return false
 }
 
 function showAll() {
@@ -190,8 +196,8 @@ function showAll() {
 
 function SaveToStorage() {
     localStorage.setItem('myCourse', JSON.stringify(myCourse))
-    newstudent_form.reset();
-    newstudent_form.style.display = 'None'
+    // newstudent_form.reset();
+    // newstudent_form.style.display = 'None'
 }
 
 function remove(i) {
@@ -228,6 +234,8 @@ function editprofile(i) {
 function hideAll() {
     document.getElementById('studentdetail').style.display = 'none'
     document.getElementById('editprofile').style.display = 'none'
+    document.getElementById('newprofile').style.display = 'none'
+
 
 
 }
@@ -284,4 +292,11 @@ function editvalidate(studentname, studentbirthday, studentemail) {
     else {
         return true;
     }
+    return false;
+}
+
+
+function doSearch(){
+    hideAll();
+
 }
