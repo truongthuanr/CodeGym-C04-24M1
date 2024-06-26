@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý học viên</title>
+</head>
+
+<body>
+
+    <!-- <input type="text" placeholder="search" id="search-name"> <button>Search</button>
+    <h2>Add Product</h2>
+    <input type="number" placeholder="Id" id="id">
+    <br>
+    <input type="text" placeholder="Name" id="name">
+    <br>
+    <input type="text" placeholder="Price" id="price">
+    <br>
+    <input type="text" placeholder="Image" id="img">
+    <img src="" alt="" id="img-edit" style="display: none;">
+    <div id="btn-save">
+        <button onclick="add()">Add</button>
+    </div>
+
+    <br>
+    <h2>List Product</h2>
+    <table border="1" id="table-product"></table> -->
+    <h1>Student List</h1>
+    <table id="table-student">
+    </table>
+    <br>
+
+    <button onclick="addNewStudent()">Add New Student</button>
+    <div>
+        <form action="" id="addnewstudent-form" style="display: none;">
+            <span>ID</span><input type="number" name="" id="student-id"> <br>
+            <span>Name</span><input type="text" name="" id="student-name"> <br>
+            <span>Birthday</span><input type="date" name="" id="student-birthday"> <br>
+            <span>Gender</span><input type="radio" name="student-gender" id="Male"
+                value="Male">
+            <label for="Male">Male</label>
+            <input type="radio" name="student-gender" id="Female" value="Female">
+            <label for="Female">Female</label>
+            <br>
+            <span>Email</span><input type="email" name="" id=""> <br>
+            <span>Course</span><input type="text" name="" id=""> <br>
+            <input type="submit" name="submit" id="submit" value="Sumit New Student">
+
+
+
+
+        </form>
+    </div>
+
+
+</body>
+<script src="course.js"></script>
+<script src="student.js"></script>
+<script src="main.js"></script>
+
+
+
+</html>

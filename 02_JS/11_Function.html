@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function</title>
+</head>
+<body>
+    <!-------------------------- Kiểm tra số nguyên tố -------------------------->
+     <h2>Kiểm tra số nguyên tố</h2>
+     <span>Nhập số cần kiểm tra</span>
+     <input type="text" name="" id="numtocheckPrime" oninput="PrimeCheck()">
+     <br><br>
+     <span id="primeresult" style="font-size: large; font-weight: bold;"></span>
+
+     <!----------------------- Chuyển đổi giữa foot và meters ------------------------>
+     <h2>Chuyển đổi Foot và Metter</h2>
+     <span>Foot:</span> <input type="number" name="" id="footinput" oninput="foot2meters()">
+     <span style='font-size:25px;'>  &#8646; </span>
+     <span>Meters:</span> <input type="number" name="" id="metersinput" oninput="meters2foot()">
+
+</body>
+<script>
+    // --------------------------------------------------------------------
+    function isPrime(num){
+        let ret;
+        check: {
+            if(num<2){
+                return false;
+            }
+            for (i=2;i<num;i++){
+
+                if ((num%i)==0){
+                    
+                    ret=false;
+                    break check;
+                }
+            }
+            ret = true;
+        }
+        return ret;
+    }
+    // --------------------------------------------------------------------
+function PrimeCheck(){
+    console.log("Kiểm tra số nguyên tố")
+    let num = parseFloat(document.getElementById('numtocheckPrime').value)
+    console.log(num)
+    console.log(isNaN(num))
+
+    if (isNaN(num)){
+        document.getElementById('primeresult').innerHTML = ""
+        console.log("NaN")
+        return;
+    }
+    if (isPrime(num)){
+        document.getElementById('primeresult').style.color = 'red'
+        document.getElementById('primeresult').innerHTML = `${num} Là số nguyên tố!`
+    } else {
+        document.getElementById('primeresult').style.color = 'blue'
+        document.getElementById('primeresult').innerHTML = `${num} Không phải số nguyên tố!`
+    }  
+}
+    // --------------------------------------------------------------------
+    function foot2meters(){
+        let foot = document.getElementById("footinput").value
+    }
+
+
+    // --------------------------------------------------------------------
+
+</script>
+</html>
