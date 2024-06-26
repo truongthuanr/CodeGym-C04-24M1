@@ -40,16 +40,45 @@ if (window.history.replaceState) {
 let newstudent_form = document.getElementById('addnewstudent-form')
 newstudent_form.addEventListener("submit", submitNewStudent)
 
+document.getElementById('editprofile-form').addEventListener("submit",updateprofile)
+
 function addNewStudent() {
     document.getElementById('addnewstudent-form').style.display = 'block'
 }
 
 function showDetail(i) {
     console.log('Run showDetail()')
-    let studentdetail = document.getElementById('student-detail')
+    let studentdetail = document.getElementById('studentdetail')
     console.log(myCourse.listStudents[i])
-    studentdetail.innerHTML = myCourse.listStudents[i].name
+    let student = myCourse.listStudents[i]
+    // studentdetail.innerHTML = myCourse.listStudents[i].name
 
+    console.log(studentdetail.querySelector('name'))
+    hideAll()
+    studentdetail.style.display = "block"
+
+    let str = `
+    <img src="hacker.png" class="rounded mx-auto d-block" alt="..."
+                     style="width: 200px ;height: 200px; border: 5px solid black;">
+                    <dl class="row text-start">
+                        <dt class="col-sm-5">Photo</dt>
+                        <dd class="col-sm-7" id="name">${student.photo}</dd>
+                        <dt class="col-sm-5">Name</dt>
+                        <dd class="col-sm-7" id="name">${student.name}</dd>
+
+                        <dt class="col-sm-5">Birthday</dt>
+                        <dd class="col-sm-7">${student.birthday}</dd>
+                        
+                        <dt class="col-sm-5">Gender</dt>
+                        <dd class="col-sm-7">${student.gender}</dd>
+                        
+                        <dt class="col-sm-5">Email</dt>
+                        <dd class="col-sm-7">${student.email}</dd>
+                        <dt class="col-sm-5"></dt>
+                        <dd class="col-sm-7"><button onclick="editprofile(${i})">Edit</button></dd>
+                    </dl>
+                        `
+                        studentdetail.innerHTML = str
 }
 
 function submitNewStudent(event) {
@@ -153,13 +182,54 @@ function showAll() {
 }
 
 
-function SaveToStorage(){
-    localStorage.setItem('myCourse',JSON.stringify(myCourse))
+function SaveToStorage() {
+    localStorage.setItem('myCourse', JSON.stringify(myCourse))
     newstudent_form.reset();
     newstudent_form.style.display = 'None'
 }
 
-function remove(i){
+function remove(i) {
     myCourse.removeStudent(i)
     showAll()
+}
+
+function editprofile(i){
+    console.log('Run editprofile()')
+    let student = myCourse.listStudents[i]
+    // let studentdetail = document.getElementById('studentdetail')
+    hideAll()
+    let editprofileform = document.getElementById('editprofile')
+    editprofileform.style.display = 'block';
+    document.getElementById('editid').value = student.id;
+    document.getElementById('editname').value = student.name;
+    document.getElementById('editbirthday').value = student.birthday;
+    document.getElementById('editcourse').value = student.course;
+    document.getElementById(`edit-gender-${student.gender.toLowerCase()}`).checked = true;
+
+    str = `<button type="submit" class="btn btn-primary" id="submit-edit-btn" value=${i}>Update</button>`
+    console.log(str)
+    document.getElementById('submit-edit-btn-div').innerHTML = str
+
+
+
+
+
+
+}
+
+function hideAll(){
+    document.getElementById('studentdetail').style.display = 'none'
+    document.getElementById('editprofile').style.display = 'none'
+
+
+}
+
+
+function updateprofile(event){
+    let i = document.getElementById('submit-edit-btn').value;
+    console.log(`Run updateprofile ${i}`)
+
+    event.preventDefault();
+    return true
+
 }

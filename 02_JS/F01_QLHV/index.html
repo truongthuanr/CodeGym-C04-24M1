@@ -4,10 +4,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+        crossorigin="anonymous">
     <title>Quản lý học viên</title>
 </head>
 
 <body>
+
+    <div class="container text-center">
+        <!-- <div class="row">
+            <div class="col">col</div>
+            <div class="col">col</div>
+            <div class="col">col</div>
+            <div class="col">col</div>
+        </div> -->
+
+        <div class="row">
+            <div class="col-7">
+                <h1>Student List</h1>
+                <table id="table-student">
+                </table>
+                <br>
+
+                <!-- <div id="student-detail">
+
+                </div> -->
+
+                <button onclick="addNewStudent()">Add New Student</button>
+                <div>
+                    <form action="" id="addnewstudent-form" style="display: none;">
+                        <span>ID</span><input type="number" name="" id="student-id"> <br>
+                        <span>Name</span><input type="text" name="" id="student-name">
+                        <br>
+                        <span>Birthday</span><input type="date" name=""
+                            id="student-birthday"> <br>
+                        <span>Gender</span><input type="radio" name="student-gender"
+                            id="Male" value="Male">
+                        <label for="Male">Male</label>
+                        <input type="radio" name="student-gender" id="Female"
+                            value="Female">
+                        <label for="Female">Female</label>
+                        <br>
+                        <span>Email</span><input type="email" name="" id="student-email">
+                        <br>
+                        <span>Course</span><input type="text" name="" id="student-course">
+                        <br>
+                        <input type="submit" name="submit" id="submit"
+                            value="Sumit New Student">
+                    </form>
+                </div>
+
+            </div>
+            <div class="col-4">
+                <div id="studentdetail" style="display: none;">
+                    <!-- <img src="hacker.png" class="rounded mx-auto d-block" alt="..."
+                     style="width: 200px ;height: 200px; border: 5px solid black;">
+                     <button>Change Photo</button>
+                    <dl class="row text-start">
+                        <dt class="col-sm-5">Name</dt>
+                        <dd class="col-sm-7" id="name">---</dd>
+
+                        <dt class="col-sm-5">Birthday</dt>
+                        <dd class="col-sm-7">---</dd>
+                        
+                        <dt class="col-sm-5">Gender</dt>
+                        <dd class="col-sm-7">---</dd>
+                        
+                        <dt class="col-sm-5">Email</dt>
+                        <dd class="col-sm-7">---</dd> -->
+
+                    <!-- <dt class="col-sm-3">Another term</dt>
+                        <dd class="col-sm-9">This definition is short, so no extra
+                            paragraphs or anything.</dd>
+
+                        <dt class="col-sm-3 text-truncate">Truncated term is truncated
+                        </dt>
+                        <dd class="col-sm-9">This can be useful when space is tight. Adds
+                            an ellipsis at the end.</dd>
+
+                        <dt class="col-sm-3">Nesting</dt> -->
+                    <!-- <dd class="col-sm-9">
+                            <dl class="row">
+                                <dt class="col-sm-4">Nested definition list</dt>
+                                <dd class="col-sm-8">I heard you like definition lists.
+                                    Let me put a definition list inside your definition
+                                    list.</dd>
+                            </dl>
+                        </dd> -->
+                    <!-- </dl> -->
+
+                </div>
+                <div id="editprofile" style="display: none;">
+                    <img src="hacker.png" class="rounded mx-auto d-block" alt="..."
+                        style="width: 200px ;height: 200px; border: 5px solid black;">
+                    <button type="button" class="btn btn-secondary">Change
+                        Photo</button><br>
+                    <br>
+                    <form id="editprofile-form">
+                        <div class="row mb-3">
+                            <label for="editid" class="col-sm-2 col-form-label">ID</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="editid"
+                                    disabled>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="editname"
+                                class="col-sm-2 col-form-label">Name</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="editname">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="editbirthday"
+                                class="col-sm-2 col-form-label">Birthday</label>
+                            <div class="col-sm-10">
+                                <input type="date" class="form-control" id="editbirthday">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="editcourse"
+                                class="col-sm-2 col-form-label">Course</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="editcourse">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="" class="col-sm-2 col-form-label">Course</label>
+                            <div class="col-sm-10">
+                                <input type="radio" class="btn-check" name="edit-gender"
+                                    id="edit-gender-male" value="male" autocomplete="off"
+                                    checked>
+                                <label class="btn btn-outline-success"
+                                    for="edit-gender-male">Male</label>
+
+                                <input type="radio" class="btn-check" name="edit-gender"
+                                    id="edit-gender-female" autocomplete="off"
+                                    value="female">
+                                <label class="btn btn-outline-success"
+                                    for="edit-gender-female">Female</label>
+                            </div>
+                        </div>
+                        <div class="d-grid gap-2" id="submit-edit-btn-div">
+                            
+                        </div>
+
+                    </form>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
 
     <!-- <input type="text" placeholder="search" id="search-name"> <button>Search</button>
     <h2>Add Product</h2>
@@ -26,35 +177,7 @@
     <br>
     <h2>List Product</h2>
     <table border="1" id="table-product"></table> -->
-    <h1>Student List</h1>
-    <table id="table-student">
-    </table>
-    <br>
 
-    <div id="student-detail">
-
-    </div>
-
-    <button onclick="addNewStudent()">Add New Student</button>
-    <div>
-        <form action="" id="addnewstudent-form" style="display: none;">
-            <span>ID</span><input type="number" name="" id="student-id"> <br>
-            <span>Name</span><input type="text" name="" id="student-name"> <br>
-            <span>Birthday</span><input type="date" name="" id="student-birthday"> <br>
-            <span>Gender</span><input type="radio" name="student-gender" id="Male"
-                value="Male">
-            <label for="Male">Male</label>
-            <input type="radio" name="student-gender" id="Female" value="Female">
-            <label for="Female">Female</label>
-            <br>
-            <span>Email</span><input type="email" name="" id="student-email"> <br>
-            <span>Course</span><input type="text" name="" id="student-course"> <br>
-            <input type="submit" name="submit" id="submit" value="Sumit New Student">
-
-
-
-        </form>
-    </div>
 
     <div>
         <button onclick="SaveToStorage()">Save</button>
