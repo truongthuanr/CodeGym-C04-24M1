@@ -157,6 +157,7 @@ function newProfileValidate(studentid,studentname,studentbirthday,studentemail){
 function showAll() {
     console.log("ShowAll")
     list = myCourse.listStudents
+    // console.log(`Find id ${list.find(a => a.id==1).name}`)
     let str = `
     <tr>
         <th>Id</th>
