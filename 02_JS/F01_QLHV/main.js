@@ -74,6 +74,9 @@ function showDetail(i) {
                         
                         <dt class="col-sm-4">Gender</dt>
                         <dd class="col-sm-7">${student.gender}</dd>
+
+                        <dt class="col-sm-4">Course</dt>
+                        <dd class="col-sm-7">${student.course}</dd>
                         
                         <dt class="col-sm-4">Email</dt>
                         <dd class="col-sm-7">${student.email}</dd>
@@ -233,9 +236,14 @@ function editprofile(i) {
 }
 
 function hideAll() {
+    console.log(`Run HideAll()`)
     document.getElementById('studentdetail').style.display = 'none'
     document.getElementById('editprofile').style.display = 'none'
     document.getElementById('newprofile').style.display = 'none'
+    document.getElementById('search-form').style.display = 'none'
+    document.getElementById('resulttable-div').style.display = 'none'
+
+
 
 
 
@@ -295,9 +303,48 @@ function editvalidate(studentname, studentbirthday, studentemail) {
     }
     return false;
 }
-
+function Search(){
+    hideAll()
+    document.getElementById('search-form').style.display='flex'
+}
 
 function doSearch(){
-    hideAll();
+    console.log(`Run doSearch`)
+    document.getElementById('resulttable-div').style.display = 'block'
+    table = document.getElementById('resulttable')
+    table.innerHTML = ""
+    value = document.getElementById('search-value').value
+    console.log(`value ${value}`)
+
+    filter = document.getElementById('search-filter').value
+    console.log(`filter ${filter}`)
+    let result
+
+    if (filter == 'byid'){
+        result = [myCourse.listStudents.find(a => a.id == value)]
+        console.log(result[0])
+    }
+    if (filter == 'byname'){
+        // console.log(`${"THUAN".toLowerCase().includes('hu')}`)
+        result = myCourse.listStudents.filter(a => a.name.toLowerCase().includes(value.toLowerCase()))
+    }
+    let str = `
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+    </tr>`
+    for (let i = 0; i < result.length; i++) {
+    str += `
+    <tr>
+        <td>${result[i].id}</td>
+        <td>${result[i].name}</td>
+    </td>
+    </tr>
+    `
+    }
+
+
+    table.innerHTML = str
+
 
 }

@@ -64,6 +64,8 @@
             <div class="col">col</div>
         </div> -->
 
+        <div class="row" style="height: 35px;">
+        </div>
         <div class="row">
 
             <div class="col-7">
@@ -72,52 +74,50 @@
                     <table id="table-student" class="table table-hover">
                     </table>
                 </div>
-                    <br>
+                <br>
 
-                    <!-- <div id="student-detail">
+                <!-- <div id="student-detail">
 
                     </div> -->
 
-                    <!-- <button onclick="addNewStudent()">Add New Student</button> -->
-                    <div class="row">
-                        <div class="d-grid gap-2 col-7">
-                            <button class="btn btn-primary" type="button"
-                                onclick="addNewStudent()">Add New Student</button>
-                        </div>
-                        <div class="d-grid gap-2 col-4">
-                            <button class="btn btn-primary" type="button"
-                                onclick="doSearch()">Search</button>
-                        </div>
+                <!-- <button onclick="addNewStudent()">Add New Student</button> -->
+                <div class="row">
+                    <div class="d-grid gap-2 col-7">
+                        <button class="btn btn-primary" type="button"
+                            onclick="addNewStudent()">Add New Student</button>
                     </div>
-
-                    <div>
-                        <form action="" id="addnewstudent-form" style="display: none;">
-                            <span>ID</span><input type="number" name="" id="student-id">
-                            <br>
-                            <span>Name</span><input type="text" name="" id="student-name">
-                            <br>
-                            <span>Birthday</span><input type="date" name=""
-                                id="student-birthday"> <br>
-                            <span>Gender</span><input type="radio" name="student-gender"
-                                id="Male" value="Male">
-                            <label for="Male">Male</label>
-                            <input type="radio" name="student-gender" id="Female"
-                                value="Female">
-                            <label for="Female">Female</label>
-                            <br>
-                            <span>Email</span><input type="email" name=""
-                                id="student-email">
-                            <br>
-                            <span>Course</span><input type="text" name=""
-                                id="student-course">
-                            <br>
-                            <input type="submit" name="submit" id="submit"
-                                value="Sumit New Student">
-                        </form>
+                    <div class="d-grid gap-2 col-4">
+                        <button class="btn btn-primary" type="button"
+                            onclick="Search()">Search</button>
                     </div>
+                </div>
+
+                <div>
+                    <form action="" id="addnewstudent-form" style="display: none;">
+                        <span>ID</span><input type="number" name="" id="student-id">
+                        <br>
+                        <span>Name</span><input type="text" name="" id="student-name">
+                        <br>
+                        <span>Birthday</span><input type="date" name=""
+                            id="student-birthday"> <br>
+                        <span>Gender</span><input type="radio" name="student-gender"
+                            id="Male" value="Male">
+                        <label for="Male">Male</label>
+                        <input type="radio" name="student-gender" id="Female"
+                            value="Female">
+                        <label for="Female">Female</label>
+                        <br>
+                        <span>Email</span><input type="email" name="" id="student-email">
+                        <br>
+                        <span>Course</span><input type="text" name="" id="student-course">
+                        <br>
+                        <input type="submit" name="submit" id="submit"
+                            value="Sumit New Student">
+                    </form>
+                </div>
 
 
-                
+
             </div>
             <div class="col-4">
                 <div id="studentdetail" style="display: none;">
@@ -300,6 +300,35 @@
                 </div>
 
 
+                <div class="input-group mb-3" id="search-form" style="display: none;">
+                    <input type="text" class="form-control border-primary-subtle"
+                        aria-label="Text input with dropdown button"
+                        style="border: solid blueviolet 5px" id="search-value">
+                        <div class="form-control" style="width: 20px">
+                        <select class="form-select form-select-sm" aria-label="Large select example" id="search-filter">
+                            <option value="byid">By ID</option>S
+                            <option value="byname">By Name</option>
+                            <option value="bycourse">By Course</option>
+                          </select>
+                        </div >
+                    <!-- <button class="btn btn-outline-secondary dropdown-toggle"
+                        type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">Dropdown</button> -->
+                    <!-- <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">By ID</a></li>
+                        <li><a class="dropdown-item" href="#">By Name</a></li>
+                        <li><a class="dropdown-item" href="#">By course</a></li> -->
+                        <!-- <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Separated link</a></li> -->
+                    <!-- </ul> -->
+                    <button type="button" class="btn btn-secondary" onclick="doSearch()">Search</button>
+
+                </div>
+
+                <div id="resulttable-div">
+                    <table id="resulttable" class="table table-hover">
+                    </table>
+                </div>
             </div>
         </div>
     </div>
