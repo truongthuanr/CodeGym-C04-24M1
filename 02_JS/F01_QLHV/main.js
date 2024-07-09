@@ -12,6 +12,9 @@ let local = JSON.parse(localStorage.getItem("myCourse"))
 console.log(local.listStudents)
 
 let myCourse = new course("Javascript Course")
+// myCourse.addStudent(stu1)
+// localStorage.clear()
+
 myCourse.readLocalStorage(local)
 console.log(myCourse.listStudents)
 
@@ -46,6 +49,7 @@ document.getElementById('newprofile-form').addEventListener("submit", submitNewS
 
 function addNewStudent() {
     hideAll()
+    document.getElementById('newprofile-form').reset()
     document.getElementById('newprofile').style.display = 'block'
 }
 
@@ -146,9 +150,9 @@ function newProfileValidate(studentid,studentname,studentbirthday,studentemail){
 
     }
     else if (studentbirthday == "") {
-        alert("Student's Name must be not-null")
+        alert("Student's Birthday must be not-null")
     }
-    else if (studentemail === null) {
+    else if (studentemail == "") {
         alert("Student's Email must be not-null")
     }
     else {
@@ -159,6 +163,7 @@ function newProfileValidate(studentid,studentname,studentbirthday,studentemail){
 
 function showAll() {
     console.log("ShowAll")
+    hideAll()
     list = myCourse.listStudents
     // console.log(`Find id ${list.find(a => a.id==1).name}`)
     let str = `
@@ -199,6 +204,7 @@ function showAll() {
 
 
 function SaveToStorage() {
+    console.log(`Run SAve storage`)
     localStorage.setItem('myCourse', JSON.stringify(myCourse))
     // newstudent_form.reset();
     // newstudent_form.style.display = 'None'
@@ -291,7 +297,7 @@ function editvalidate(studentname, studentbirthday, studentemail) {
         alert("Student's Name must be not-null")
     }
     else if (studentbirthday == "") {
-        alert("Student's Name must be not-null")
+        alert("Student's Birthday must be not-null")
     }
     else if (studentemail == "") {
         alert("Student's Email must be not-null")

@@ -17,8 +17,8 @@ class course {
         let temp = JSON.stringify(newStudent)
         temp = JSON.parse(temp)
 
-        console.log(`Map id ${this.listStudents.find(a => a.id).id}`)
-        console.log(`Map id ${this.listStudents.find(s => s.id === temp.id)}`)
+        // console.log(`Map id ${this.listStudents.find(a => a.id).id}`)
+        // console.log(`Map id ${this.listStudents.find(s => s.id === temp.id)}`)
         // console.log(`Map id ${ === undefined}`)
 
 
@@ -51,6 +51,7 @@ class course {
         let temp = JSON.stringify(student);
         temp = JSON.parse(temp);
         this.listStudents[i] = temp;
+        alert("Update Successfully")
 
         showAll();
 
