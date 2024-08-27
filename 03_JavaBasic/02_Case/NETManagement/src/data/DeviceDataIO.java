@@ -15,7 +15,7 @@ public class DeviceDataIO {
 
     public void writeData(List<Device> devices) {
         try {
-            System.out.println("File: " + file.getAbsolutePath());
+            // System.out.println("File: " + file.getAbsolutePath());
             String data = "";
             for (Device device: devices){
                 data += device.toCsvString() + "\n";

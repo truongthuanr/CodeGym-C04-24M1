@@ -19,7 +19,7 @@ public class Device {
     }
 
     public enum deviceStatus{
-        INIT(1), OFFLINE(2), ONLINE(3), MAINTENANCE(4);
+        INIT(1), OFFLINE(2), ONLINE(3), OCCUPIED(4), MAINTENANCE(5);
 
         public int value;
 
@@ -44,9 +44,8 @@ public class Device {
     private deviceType type;
     private deviceStatus status;
 
-    public Device(String name ,deviceType type) {
-        // TODO
-        this.id = 1;
+    public Device(int id, String name ,deviceType type) {
+        this.id = id;
         this.name = name;
         this.type = type;
         this.status = deviceStatus.INIT;
@@ -65,6 +64,8 @@ public class Device {
         return this.id;
     }
 
+    public String getName() {return this.name;}
+
     public deviceType getType() {
         return this.type;
     }
@@ -76,6 +77,8 @@ public class Device {
     public deviceStatus getStatus() {
         return this.status;
     }
+
+
     public void setStatus(deviceStatus status) {
         this.status = status;
     }
@@ -88,6 +91,6 @@ public class Device {
     @Override
     public String toString() {
 //        return "Device [id=" + this.id + ", type=" + this.type + ", status=" + this.status + "]";
-        return "Device [id=" + id + ", name=" + name + ", type=" + type + ", status=" + status;
+        return "Device [id=" + id + ", name=" + name + ", type=" + type + ", status=" + status  + "]";
     }
 }
