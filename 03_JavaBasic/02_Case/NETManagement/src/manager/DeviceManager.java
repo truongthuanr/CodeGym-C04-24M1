@@ -1,6 +1,7 @@
 package manager;
 
 import data.DeviceDataIO;
+import data.ServiceConfigIO;
 import model.Device;
 
 import java.util.ArrayList;
@@ -10,6 +11,7 @@ public class DeviceManager implements IManager<Device> {
     private List<Device> devices = new ArrayList<>();
 
     DeviceDataIO deviceDataIO = new DeviceDataIO();
+    private static final ServiceConfigIO serviceConfig = new ServiceConfigIO();
 
     public DeviceManager() {
         this.devices = this.deviceDataIO.readData();
@@ -103,9 +105,32 @@ public class DeviceManager implements IManager<Device> {
         } else {
             System.out.println("Device ID not found. . . . ");
         }
+    }
 
+    public void stopDevice(int id){
+        Device device = findDeviceByID(id);
+        if(device != null){
+            if (device.getStatus() != Device.deviceStatus.OCCUPIED){
+                System.out.println("Máy hiện tại không đang sử dụng!!!");
+            }else {
+                device.setStatus(Device.deviceStatus.ONLINE);
+                deviceDataIO.writeData(this.devices);
+            }
+        }else {
+            System.out.println("Device ID not found. . . . ");
+        }
+    }
 
+    public float getUnitPrice(int id){
 
+        Device device = findDeviceByID(id);
+        if(device != null) {
+            String sevicename = device.getType().name();
+            return serviceConfig.servicePrice.get(sevicename);
+        } else {
+            System.out.println("Device ID not found. . . . ");
+        }
+        return -1;
     }
 }
 

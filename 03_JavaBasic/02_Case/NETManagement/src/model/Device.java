@@ -1,6 +1,14 @@
 package model;
 
+
 public class Device {
+    private int id;
+    private String name;
+    private deviceType type;
+    private deviceStatus status;
+
+
+
     public enum deviceType{
         ECO(1), STANDARD(2), VIP(3), PREMIUM(4) ;
 
@@ -39,10 +47,7 @@ public class Device {
 
 
 
-    private int id;
-    private String name;
-    private deviceType type;
-    private deviceStatus status;
+
 
     public Device(int id, String name ,deviceType type) {
         this.id = id;
@@ -91,6 +96,8 @@ public class Device {
     @Override
     public String toString() {
 //        return "Device [id=" + this.id + ", type=" + this.type + ", status=" + this.status + "]";
-        return "Device [id=" + id + ", name=" + name + ", type=" + type + ", status=" + status  + "]";
+//        return "Device [id=" + id + ", name=" + name + ", type=" + type + ", status=" + status  + "]";
+        return String.format("%2s | %20s | %10s | %10s", id, name, type, status);
     }
+
 }

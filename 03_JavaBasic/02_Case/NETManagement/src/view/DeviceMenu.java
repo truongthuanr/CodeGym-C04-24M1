@@ -38,10 +38,13 @@ public class DeviceMenu {
                     break;
                 case 3:
                     removeDevice();
+                    break;
                 case 4:
                     updateDevice();
+                    break;
                 case 5:
                     updateDeviceStatusMenu();
+                    break;
 
             }
 
@@ -65,6 +68,24 @@ public class DeviceMenu {
                 System.out.println(device.toString());
             }
         }
+
+    }
+
+    protected int showDeviceWithStatus(deviceStatus status){
+        // n: counter of number of device
+        int n = 0;
+        System.out.println("Available devices:");
+        List<Device> devices = this.deviceManager.getAll();
+        for (Device device : devices) {
+            if (device.getStatus() == status){
+                n += 1;
+                System.out.println(device.toString());
+            }
+        }
+        if(n==0){
+            System.out.println("No devices found!");
+        }
+         return n;
 
     }
 
@@ -100,9 +121,9 @@ public class DeviceMenu {
             System.out.println();
             System.out.println("===================================");
             System.out.println("========== Remove Device ==========");
-            System.out.println("1. Hiển thị danh sách các máy.");
-            System.out.println("2. Xóa máy theo id máy.");
-            System.out.println("3. Xóa máy theo tên máy.");
+            //System.out.println("1. Hiển thị danh sách các máy.");
+            System.out.println("1. Xóa máy theo id máy.");
+            System.out.println("2. Xóa máy theo tên máy.");
             System.out.println("0. Thoát.");
 
 
@@ -111,16 +132,16 @@ public class DeviceMenu {
 //            System.out.println();
 
             switch (choice) {
+                //case 99:
+                    //showAllDevice();
+                    //break;
                 case 1:
-                    showAllDevice();
-                    break;
-                case 2:
                     System.out.print("Nhập id máy muốn xóa: ");
                     int id = Input.InputNumber();
                     System.out.println();
                     deviceManager.delete(id);
                     break;
-                case 3:
+                case 2:
                     System.out.println("This funtion is comming soon!!!");
                     break;
             }
@@ -170,7 +191,10 @@ public class DeviceMenu {
         do {
             System.out.println("1. Xem danh sách máy");
             System.out.println("2. Chỉnh sửa trạng thái máy.");
+            System.out.println("0. Thoát.");
+            System.out.print("Nhập lựa chọn: ");
             choice = Input.InputNumber();
+            System.out.println("");
 
             switch (choice) {
                 case 1:

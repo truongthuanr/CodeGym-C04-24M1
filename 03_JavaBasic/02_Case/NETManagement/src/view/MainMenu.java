@@ -12,6 +12,7 @@ public class MainMenu {
             System.out.println("========== Main Menu ==========");
             System.out.println("1. Quản lý máy.");
             System.out.println("2. Dịch vụ.");
+            System.out.println("3. Doanh Thu.");
 
             System.out.println("0. Thoát");
 
@@ -29,8 +30,6 @@ public class MainMenu {
                     break;
                 case 2:
                     serviceMenu.showServiceMenu();
-
-
                     break;
 
             }

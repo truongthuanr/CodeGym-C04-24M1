@@ -25,6 +25,7 @@ public class DeviceDataIO {
             bufferedWriter.write(data);
             bufferedWriter.close();
         } catch (Exception e){
+            System.out.println("Exception in DeviceDataIO writeData: ");
             System.out.println("Error " + e.getMessage());
         }
     }
@@ -45,7 +46,9 @@ public class DeviceDataIO {
 
                 devices.add(device);
             }
+            bufferedReader.close();
         } catch (Exception e) {
+            System.out.println("Exception in DeviceDataIO readData: ");
             System.out.println("Error " + e.getMessage());
         }
 
