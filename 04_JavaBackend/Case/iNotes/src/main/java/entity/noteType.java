@@ -1,2 +1,4 @@
-package entity;public class noteType {
+package entity;
+
+public class noteType {
 }
