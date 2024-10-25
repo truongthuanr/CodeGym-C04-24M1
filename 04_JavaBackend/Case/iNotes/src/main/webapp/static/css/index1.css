@@ -1,0 +1,58 @@
+* {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.header {
+    
+    width: 100%;
+    height: 60px;
+    border: solid black 2px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: fixed;
+
+
+}
+.header .logo {
+    height: 40px;
+    width: 40px;
+    margin: 10px 10px;
+    
+    border: 1px solid black;
+}
+
+.header .navbar {
+    width: 60%;
+    height: 100%;
+    border: 2px black solid;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+}
+.navbar .menu {
+    width: 100px;
+    height: 90%;
+    border: 2px solid black;
+    margin: 0px 10px;
+
+}
+
+.header .info { 
+
+    height: 100%;
+    width: 30%;
+    border: 2px solid black;
+}
+
+.leftpanel {
+    margin-top: 90px;
+    height: 600px;
+    width: 300px;
+    border: 2px solid black;
+}

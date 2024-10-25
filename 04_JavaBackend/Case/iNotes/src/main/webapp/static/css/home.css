@@ -1,0 +1,112 @@
+* {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    display: block;
+    border: 2px black;
+    background: aqua;
+}
+
+.newnote {
+    width: 400px;
+    height: 300px;
+    border: 1px black solid;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    /* align-content: stretch; */
+    justify-content: flex-start;
+}
+
+.newnote .newnote-header {
+    height: 15%;
+    font-family: Arial;
+    font-size: large;
+    text-align: center;
+    color: darkgreen;
+    display: flex;
+    align-items: center;
+}
+
+.newnote .newnote-title {
+    height: 15%;
+    width: 90%;
+    align-items: center;
+    /* border: black solid 1px; */
+    display: flex;
+    justify-content: center;
+}
+
+.newnote-title .title-name {
+    height: 100%;
+    width: 30%;
+    /* border: black solid 1px; */
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+}
+
+.newnote-title .title-value{
+    height: 100%;
+    width: 70%;
+    align-items: center;
+    /* border: black solid 1px; */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 5px 0px;
+}
+.title-value input {
+    border: black 1px solid;
+    height: 100%;
+
+    width: 100%;
+    border-radius: 20px;
+    padding-left: 10px;
+    margin-left: 10px;
+}
+
+.newnote .newnote-content {
+    height: 70%;
+    width: 90%;
+    /* border: black solid 1px; */
+    display: flex;
+    
+
+}
+
+.newnote-content .content-name {
+    height: 100%;
+    width: 30%;
+    /* border: black solid 1px; */
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+}
+.newnote-content .content-value {
+
+    height: 100%;
+    width: 70%;
+    align-items: center;
+    /* border: black solid 1px; */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 5px 0px;
+}
+.content-value textarea {
+    border: black 1px solid;
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+    padding-left: 10px;
+    margin-left: 10px;
+    padding-top: 10px;
+
+}
